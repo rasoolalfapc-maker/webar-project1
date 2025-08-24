@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Magic Frame Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.2/dist/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.5/dist/mindar-image-aframe.prod.js"></script>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    video { display: none; }
+  </style>
+</head>
+<body>
+  <a-scene mindar-image="imageTargetSrc: ./targets.mind;" 
+           vr-mode-ui="enabled: false" 
+           device-orientation-permission-ui="enabled: true">
+
+    <a-assets>
+      <!-- ویدیو تستی آنلاین (۲ ثانیه، سبک و mp4) -->
+      <video id="demoVideo" 
+             src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" 
+             autoplay loop muted playsinline webkit-playsinline></video>
+    </a-assets>
+
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-video src="#demoVideo" width="1" height="0.6" position="0 0 0"></a-video>
+    </a-entity>
+
+  </a-scene>
+</body>
+</html>
